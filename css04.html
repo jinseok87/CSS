@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>css4 - 의사(pseudo) 선택자</title>
+    <style>
+      /* 링크 선택자 */
+
+      /* 폼 컨트롤에서 사용하는 선택자 */
+      a:link {
+        /* a 태그에서만 사용가능 */
+        /* a :link : a 요소에 href 속성이 있는 요소 선택 */
+        color: deeppink능;
+      }
+      a:visited {
+        /* a 태그에서만 사용가능 */
+        /* a : visited - a 요소에 href 속성에 기재된 url이 방문한 적 있는 경우  */
+        color: skyblue;
+      }
+      a:hover {
+        /* :hover - 해당 요소에 마우스 포인터를 올려놓은 요소를 선택  */
+        background-color: gold;
+      }
+      a:active {
+        /* :active - 해당 요소에 마우스 포인터를 올리고, 버튼을 누르고 있는 요소 선택  */
+        background-color: #333;
+        color: #fff;
+      }
+      input:focus {
+        /* focus  입력 컨트롤에 커서가 위치한 요소를 선택 */
+        background-color: gold;
+      }
+      input:enabled {
+        /* :enabled : 사용 가능한 입력 컨트롤을 선택 */
+        color: pink;
+      }
+      input:disabled {
+        /* :disabled : 사용 불가능한 입력 컨트롤을 선택 */
+        color: red;
+      }
+      input:not(:checked) + span {
+        /* :checked : 체크 박스나 라디오 버튼에서 체크가 된 요소를 선택   */
+        color: red;
+      }
+      input:checked + span {
+        color: blue;
+      }
+      /* 가상 선택자  */
+      #con3 p::first-letter {
+        /* ::first-letter - 첫 글자를 선택 */
+        font-size: 60px;
+      }
+      #con3 p::first-line {
+        /* ::first-line - 첫 줄을 선택 */
+        color: red;
+      }
+      #con3 P::selection {
+        /* ::selection - 마우스로 글자 범위 지정한 만큼 선택 */
+        background-color: gold;
+      }
+      #con3 h3::before {
+        /* ::before - 해당 요소의 앞을 선택 */
+        content: "[";
+        font-size: 40px;
+      }
+      #con3 h3::after {
+        /* ::after - 해당 요소의 뒤를 선택 */
+        content: "]";
+        font-size: 40px;
+      }
+      /*  : target - a 요소에 의해서 타겟된  */
+      .page {
+        display: none;
+      }
+      .page:target {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap" class="con1">
+      <a href="http://www.naver.com">링크1</a>
+      <a href="http://www.okgunyang.co.kr">링크2</a>
+      <a>링크3</a>
+      <a href="#page1">링크4</a>
+      <a href="#page2">링크5</a>
+    </div>
+    <div class="wrap" class="con2">
+      <form action="">
+        아이디 :<input type="text" name="id" /><br /><br />
+        비밀번호 :<input type="text" name="pw" /><br /><br />
+        이름 :<input type="text" name="name" /><br /><br />
+        전화번호 :<input
+          type="text"
+          name="tel"
+          value="010-1111-2222"
+          disabled
+        /><br /><br />
+        성별 : <br />
+        <input type="radio" name="male" value="1" id="male1" checked />
+        <span>남성</span>
+        <input type="radio" name="male" value="2" id="male2" checked />
+        <span>여성</span>
+      </form>
+    </div>
+    <div class="wrap" id="con3">
+      <h3>나의 다짐</h3>
+      <p>sql, java, html</p>
+    </div>
+    <div
+      id="page1"
+      class="page"
+      style="height: 200px; background-color: darkcyan"
+    >
+      여기는 페이지1
+    </div>
+    <div
+      id="page2"
+      class="page"
+      style="height: 200px; background-color: yellow"
+    >
+      여기는 페이지2
+    </div>
+  </body>
+</html>
